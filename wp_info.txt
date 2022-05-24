@@ -1,0 +1,7 @@
+wp login:
+admin/admin@24
+
+databases name:
+enterprise-insight
+user: root
+password: ''
