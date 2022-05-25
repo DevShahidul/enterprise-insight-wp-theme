@@ -211,13 +211,13 @@ function my_acf_settings_url( $url ) {
 // Exporting ACF Fields (via JSON sync)
 add_filter('acf/settings/save_json', 'set_acf_json_save_folder');
 function set_acf_json_save_folder( $path ) {
-    $path = get_stylesheet_directory_uri() . '/includes/acf-json';
+    $path = dirname(__FILE__) . '/includes/acf-json';
     return $path;
 }
 add_filter('acf/settings/load_json', 'add_acf_json_load_folder');
 function add_acf_json_load_folder( $paths ) {
     unset($paths[0]);
-    $paths[] = get_stylesheet_directory_uri() . '/includes/acf-json';
+    $paths[] = dirname(__FILE__) . '/includes/acf-json';
     return $paths;
 }
 
