@@ -14,32 +14,53 @@
 	<footer>
 		<div class="container">
 			<div class="footer">
+				<?php 
+				$footer_logo = get_field('footer_logo', 'option');
+				if(!empty('$footer_logo')) : ?>
 					<div>
 						<a href="#">
-							<img width="130" class="logo" src="<?php echo get_template_directory_uri().'/assets/images/logo_white.png' ?>" alt="" />
+							<img width="130" class="logo" src="<?php echo esc_url($footer_logo['url']); ?>" alt="<?php echo esc_attr($footer_logo['alt']); ?>" />
 						</a>
 					</div>
-					<div>
-						<h3 class="title">Product</h3>
-						<ul>
-							<li class="item">
-									<a href="#">
-										Enterprise Insight
-									</a>
-							</li>
-							<li class="item">
-									<a href="#">
-										Enterprise Insight Portal
-									</a>
-							</li>
-							<li class="item">
-									<a href="#">
-										Product Documentation
-									</a>
-							</li>
-						</ul>
-					</div>
-			
+				<?php endif; ?>
+					<?php
+					// Check rows exists.
+					if( have_rows('footer_widgets', 'option') ):
+
+						// Loop through rows.
+						while( have_rows('footer_widgets', 'option') ) : the_row();
+
+							// Load sub field value.
+							$title = get_sub_field('widget_title', 'option');
+							// Do something...
+							?>
+							<div>
+								<h3 class="title"><?php echo $title; ?></h3>
+								<ul>
+									<?php 
+									 if( have_rows('widget_links', 'option') ):
+										while( have_rows('widget_links', 'option') ) : the_row();
+
+											// Get sub value.
+											$widget_link =  get_sub_field('link_item', 'option');
+											if( $widget_link ): 
+											$widget_link_url = $widget_link['url'];
+											$widget_link_title = $widget_link['title'];
+											$widget_link_target = $widget_link['target'] ? $widget_link['target'] : '_self';
+											?>
+												<li class="item">
+													<a href="<?php echo esc_url( $widget_link_url ); ?>" target="<?php echo esc_attr( $widget_link_target ); ?>"><?php echo esc_html( $widget_link_title ); ?></a>
+												</li>
+											<?php endif; ?>
+									<?php endwhile; endif;?>
+								</ul>
+							</div>
+					<?php
+						// End loop.
+						endwhile;
+						endif; 
+					?>
+<!-- 			
 					<div>
 						<h3 class="title">Solutions</h3>
 						<ul>
@@ -101,7 +122,7 @@
 									</a>
 							</li>
 						</ul>
-					</div>
+					</div> -->
 			</div>
 		</div>
 	</footer>

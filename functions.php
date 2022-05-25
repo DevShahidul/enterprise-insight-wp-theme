@@ -220,7 +220,6 @@ function add_acf_json_load_folder( $paths ) {
 }
 
 // Automatting the SYNC Process ACF fields
-add_action( 'admin_init', 'article_gamification_sync_acf_fields' );
 function article_gamification_sync_acf_fields() {
     // vars
     $groups = acf_get_field_groups();
@@ -269,4 +268,30 @@ function article_gamification_sync_acf_fields() {
             $field_group = acf_import_field_group( $sync[ $key ] );
         }
     }
+}
+add_action( 'admin_init', 'article_gamification_sync_acf_fields' );
+
+// Create options page with acf
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Header Settings',
+		'menu_title'	=> 'Header',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
 }

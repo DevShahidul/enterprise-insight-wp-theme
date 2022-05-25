@@ -51,10 +51,18 @@
 							?>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 auth">
-                    <a href="#" class="btn btn small">
+                    <?php
+                    $login_btn = get_field('login_button', 'option');
+                    if($login_btn) :
+                        $login_btn_url = $login_btn['url'];
+                        $login_btn_title = $login_btn['title'];
+                        $login_btn_target = $login_btn['target'] ? $login_btn['target'] : '_self';
+                    ?>
+                    <a class="btn btn small" href="<?php echo esc_url( $login_btn_url ); ?>" target="<?php echo esc_attr( $login_btn_target ); ?>">
                         <img width="12" height="12" src="<?php echo get_template_directory_uri().'/assets/images/user-ic.png" alt="user-ic' ?>" />
-                        Login
+                        <?php echo esc_html( $login_btn_title ); ?>
                     </a>
+                    <?php endif; ?>
                     <a class="btn btn-red small free-demo-open" id="free-demo-open">
                         <img width="13" height="13" src="<?php echo get_template_directory_uri().'/assets/images/zap-ic.png' ?>" alt="zap-ic" />
                         Free Demo
