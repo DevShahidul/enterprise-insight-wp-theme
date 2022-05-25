@@ -341,7 +341,7 @@ header .auth .btn {
 #main .notify-form {
     margin-bottom: 0 !important;
 }
-
+#main .notify-form,
 #main .notify-form form,
 .notify-form .wpforms-field-container {
     display: flex;

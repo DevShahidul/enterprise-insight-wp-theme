@@ -13,14 +13,14 @@ get_header();
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <?php the_field('section_contents'); ?>
-                    <!-- <div class="notify-form">
+                    <div class="notify-form">
                         <input type="email" placeholder="Email" name="email" />
                         <input type="phone" placeholder="Phone Number (optional)" />
                         <a class="btn btn-red">
                             <img width="18" height="18" src="<?php echo get_template_directory_uri() .'/assets/images/bell-ic.png' ?>" alt="bell" />
                             Notify me
                         </a>
-                    </div> -->
+                    </div>
                     <?php echo do_shortcode('[wpforms id="76" title="false"]'); ?>
                     <span class="coming-text">Coming 2023, keep me informed</span>
                     <div>
