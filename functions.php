@@ -186,8 +186,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
-
 // Define path and URL to the ACF plugin.
 define( 'MY_ACF_PATH', get_stylesheet_directory() . '/includes/acf/' );
 define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/includes/acf/' );

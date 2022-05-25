@@ -10,7 +10,8 @@ ul {
     list-style: none;
 }
 
-html,body  {
+html,
+body {
     font-family: 'Roboto';
     font-style: normal;
 }
@@ -45,7 +46,7 @@ html,body  {
     user-select: none;
 }
 
-.wrap-checkbox  input {
+.wrap-checkbox input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -63,11 +64,11 @@ html,body  {
     border-radius: 2px;
 }
 
-.wrap-checkbox :hover input ~ .checkmark {
+.wrap-checkbox :hover input~.checkmark {
     background-color: #ccc;
 }
 
-.wrap-checkbox  input:checked ~ .checkmark {
+.wrap-checkbox input:checked~.checkmark {
     background-color: #E82A45;
 }
 
@@ -77,11 +78,11 @@ html,body  {
     display: none;
 }
 
-.wrap-checkbox  input:checked ~ .checkmark:after {
+.wrap-checkbox input:checked~.checkmark:after {
     display: block;
 }
 
-.wrap-checkbox  .checkmark:after {
+.wrap-checkbox .checkmark:after {
     left: 5px;
     top: 2px;
     width: 5px;
@@ -99,10 +100,10 @@ html,body  {
 }
 
 .btn.btn-red {
-    background: #E82A45;
-    border: 2px solid #E82A45;
-    color: #FFFFFF;
-    border-radius: 4.16667px;
+    background: #E82A45 !important;
+    border: 2px solid #E82A45 !important;
+    color: #FFFFFF !important;
+    border-radius: 4.16667px !important;
 }
 
 .btn.small {
@@ -124,7 +125,7 @@ html,body  {
     width: 100%;
 }
 
-.input[required] + span:after {
+.input[required]+span:after {
     content: '*';
     position: absolute;
     right: 0;
@@ -133,6 +134,7 @@ html,body  {
     color: #82839C;
 
 }
+
 /* end - common */
 
 /* header */
@@ -170,7 +172,7 @@ header .burger {
     margin-right: 25px;
 }
 
- header .sidebar-mobile {
+header .sidebar-mobile {
     position: fixed;
     z-index: 999;
     background: #fff;
@@ -197,7 +199,7 @@ header .sidebar-mobile .close {
     cursor: pointer;
 }
 
-header .sidebar-mobile ul li  {
+header .sidebar-mobile ul li {
     margin-bottom: 20px;
 }
 
@@ -243,12 +245,12 @@ header .dropbtn {
     background-color: #fff;
     font-size: 14px;
 }
-  
+
 header .dropdown {
     position: relative;
     display: inline-block;
 }
-  
+
 header .dropdown-content {
     margin-top: 5px;
     position: absolute;
@@ -261,7 +263,7 @@ header .dropdown-content {
     visibility: hidden;
     opacity: 0;
 }
-  
+
 header .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -294,7 +296,7 @@ header .auth .btn {
     font-weight: 500;
     font-size: 38px;
     letter-spacing: -1px;
-    color: #E82A45;
+    color: #5c4d82;
 }
 
 #main {
@@ -322,8 +324,10 @@ header .auth .btn {
     position: relative;
 }
 
-#main h1 span {
-    color: #5c4d82;
+#main h1 span,
+#main h1 ins {
+    color: #E82A45;
+    text-decoration: none;
 }
 
 #main p {
@@ -335,7 +339,39 @@ header .auth .btn {
 }
 
 #main .notify-form {
+    margin-bottom: 0 !important;
+}
+
+#main .notify-form form,
+.notify-form .wpforms-field-container {
     display: flex;
+}
+
+.notify-form .wpforms-field-container>div {
+    padding: 0 !important;
+}
+
+.notify-form .wpforms-submit-container {
+    padding-top: 0 !important;
+}
+
+.notify-form .wpforms-submit-container .wpforms-submit {
+    padding: 7px 25px !important;
+    font-size: 12px !important;
+    font-weight: 700;
+}
+
+.notify-form .wpforms-submit-container .wpforms-submit::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    background-image: url(../assets/images/bell-ic.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 #main .notify-form input {
@@ -349,6 +385,7 @@ header .auth .btn {
     color: #050728;
     margin-right: 10px;
     min-width: 170px;
+    max-width: calc(100% - 10px) !important;
 }
 
 #main .coming-text {
@@ -370,6 +407,7 @@ header .auth .btn {
     left: 0;
     cursor: pointer;
 }
+
 /* section main - end */
 
 /* section options */
@@ -387,18 +425,35 @@ header .auth .btn {
 }
 
 #options .option {
-    padding: 0;
     padding-top: 47px;
     padding-bottom: 57px;
+    padding-right: 30px;
 }
 
 #options .option:nth-child(2) {
     padding-left: 50px;
-    padding-right: 50px;
+    border-top: 2px solid rgba(0, 0, 0, 0.04);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.04);
 }
 
 #options .option:nth-child(3) {
     padding-left: 50px;
+}
+
+@media screen and (min-width: 992px) {
+    #options .option {
+        flex: 0 0 29%;
+        max-width: 29%;
+    }
+
+    #options .option:nth-child(2) {
+        flex: 0 0 42%;
+        max-width: 42%;
+        border-left: 2px solid rgba(0, 0, 0, 0.04);
+        border-right: 2px solid rgba(0, 0, 0, 0.04);
+        border-top: 0;
+        border-bottom: 0;
+    }
 }
 
 #options .option p {
@@ -406,17 +461,17 @@ header .auth .btn {
     font-size: 14px;
     line-height: 14px;
     color: #82839C;
-    white-space: nowrap;
 }
 
 #options .option h3 {
-    padding: 6px  0 6px;
+    padding: 6px 0 6px;
 }
 
 #options .center {
     border-left: 2px solid rgba(0, 0, 0, 0.04);
     border-right: 2px solid rgba(0, 0, 0, 0.04);
 }
+
 /* section options - end */
 
 /* footer */
@@ -427,7 +482,7 @@ footer {
 
 .footer {
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
 
 footer .title {
@@ -438,8 +493,7 @@ footer .title {
     margin-bottom: 15px;
 }
 
-footer .logo {
-}
+footer .logo {}
 
 footer .item {
     margin-bottom: 5px;
@@ -453,7 +507,7 @@ footer .item a {
     text-decoration: none;
 }
 
-footer .row div > div {
+footer .row div>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -462,6 +516,7 @@ footer .row div > div {
 footer .item a:hover {
     color: #AFB0BC;
 }
+
 /* footer - end */
 
 /* dialog */
@@ -475,7 +530,7 @@ footer .item a:hover {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    border: none;   
+    border: none;
     background: rgba(0, 0, 0, .8);
     display: flex;
     justify-content: center;
@@ -546,7 +601,7 @@ footer .item a:hover {
     padding-left: 10px;
 }
 
-.dialog form label input[type=checkbox]{
+.dialog form label input[type=checkbox] {
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -560,6 +615,7 @@ footer .item a:hover {
     right: 25px;
     top: 25px;
 }
+
 /* dialog - end */
 
 /* about */
@@ -584,6 +640,11 @@ footer .item a:hover {
     display: inline-block;
 }
 
+#about .container {
+    display: flex;
+    flex-direction: column;
+}
+
 #about p {
     font-weight: 500;
     font-size: 15px;
@@ -603,6 +664,26 @@ footer .item a:hover {
     object-position: center;
 }
 
+#about .first {
+    order: 1;
+}
+
+#about .row:nth-child(3) {
+    order: 2;
+}
+
+#about .second {
+    order: 3;
+}
+
+@media screen and (min-width: 992px) {
+
+    #about .row.second [class*="col-"]:first-child,
+    #about .row.second [class^="col-"]:first-child {
+        order: 2;
+    }
+}
+
 #about .row.second .text-mute {
     margin-top: 100px;
 }
@@ -611,11 +692,11 @@ footer .item a:hover {
     position: relative;
 }
 
-#about .first > div:first-child div {
+#about .first>div:first-child div {
     padding-left: 90px;
 }
 
-#about .second > div:last-child div {
+#about .second>div:first-child div {
     padding-left: 70px;
     padding-top: 50px
 }
@@ -627,9 +708,14 @@ footer .item a:hover {
     transform: translate(-50%, -50%);
     z-index: 999;
 }
+
 /* about - end */
 
 /* shapes */
+/* #shapes {
+    margin-bottom: 70px;
+} */
+
 #shapes h1 {
     font-weight: 500;
     font-size: 38px;
@@ -663,9 +749,19 @@ footer .item a:hover {
     padding-bottom: 100px;
 }
 
-#shapes .second > div:last-child div {
+#shapes .even .shape-description {
+    order: 2;
+    padding-left: 100px;
+}
+
+#shapes .even .shape-thumb {
+    order: 1;
+}
+
+#shapes .second>div:last-child div {
     margin-left: 100px;
 }
+
 /* shapes - end */
 
 /* contactus */
@@ -739,14 +835,15 @@ footer .item a:hover {
     padding-left: 10px;
 }
 
-#contact-us form label:not(.wrap-checkbox) input[type=checkbox]{
+#contact-us form label:not(.wrap-checkbox) input[type=checkbox] {
     margin-right: 10px;
     margin-left: 10px;
 }
 
-#contact-us form .btn.btn-red{
+#contact-us form .btn.btn-red {
     min-width: 200px;
 }
+
 /* contactus - end */
 
 /* coming soon */
@@ -776,36 +873,37 @@ footer .item a:hover {
     color: #5C5D82;
     margin-bottom: 18px;
 }
+
 /* coming soon - end */
 
 /* slider */
 .slick-dots {
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-	margin: 0;
-	padding: 1rem 0;
-	list-style-type: none;
+    margin: 0;
+    padding: 1rem 0;
+    list-style-type: none;
 }
 
-.slick-dots  li {
+.slick-dots li {
     margin: 0 0.25rem;
 }
 
-.slick-dots  button {
+.slick-dots button {
     display: block;
     width: 6px;
     height: 6px;
     padding: 0;
-    
+
     border: none;
     border-radius: 100%;
     background-color: #D9D9D9;
-    
+
     text-indent: -9999px;
 }
 
-.slick-dots  li.slick-active button {
+.slick-dots li.slick-active button {
     background-color: #E82A45;
     width: 10px;
     height: 10px;
@@ -814,6 +912,7 @@ footer .item a:hover {
 .slider {
     cursor: pointer;
 }
+
 /* slider - end*/
 
 /* mouse scroll down */
@@ -858,22 +957,24 @@ footer .item a:hover {
     line-height: 1em;
 }
 
-body.logged-in header .sidebar-mobile{
+body.logged-in header .sidebar-mobile {
     top: 32px;
 }
 
 @keyframes mouse-scroll {
-to {
-    transform: translate(0, 6px) scale(1, 0.8);
+    to {
+        transform: translate(0, 6px) scale(1, 0.8);
+    }
 }
-}
+
 /* mouse scroll down */
 
 @media screen and (max-width: 1024px) {
+
     #main:after,
     header:after {
         display: none;
-    } 
+    }
 
     #main .macbook {
         width: 500px;
@@ -912,9 +1013,10 @@ to {
 }
 
 @media screen and (max-width: 768px) {
-    body.logged-in header .sidebar-mobile{
+    body.logged-in header .sidebar-mobile {
         top: 46px;
     }
+
     .order-md-2 {
         order: 2;
     }
@@ -939,11 +1041,10 @@ to {
         display: none;
     }
 
-    #main .notify-form {
-        display: flex;
+    #main .notify-form form {
         flex-direction: column;
     }
-    
+
     #main .notify-form input {
         margin-bottom: 20px;
     }
@@ -1057,18 +1158,19 @@ to {
 }
 
 @media screen and (max-width: 425px) {
+
     #contact-us h1,
     .coming-soon h1,
     #shapes h1,
     #about h1 {
         font-size: 25px;
     }
-    
+
     #contact-us p br,
     #shapes p br,
-    #about p br{
+    #about p br {
         display: none;
     }
 
-    
+
 }
