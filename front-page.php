@@ -13,7 +13,9 @@ $title = get_field('test_title');
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <h1><?php echo $title; ?>
+                    <?php if($title) : ?>
+                        <h1><?php echo $title; ?>
+                    <?php endif; ?>
                     </h1>
                     <p>
                         The next generation of enterprise architecture <br/> tooling
